@@ -6,6 +6,7 @@
 package codigo;
 
 import java.awt.Image;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -18,7 +19,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     //esta variable guarda cuántos fallos llevo en el juego
     int numeroFallos = 0;
             
-    String palabraOculta = "cetys";
+    String palabraOculta = eligePalabra();
     
     
     //este método recibe el botón que ha sido pulsado 
@@ -95,8 +96,26 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     public VentanaAhorcado() {
         initComponents();
         dibujaImagen();
+        
+        String auxiliar = "";
+        for (int i=0; i < palabraOculta.length();i++){
+            auxiliar = auxiliar + "_ ";
+        }
+        jLabel1.setText(auxiliar);
     }
 
+    //eligePalabra va a seleccionar una palabra al azar de un array de palabras
+    private String eligePalabra(){
+        String[]listaPalabras = {"hamud", "foreskin", "aveces", "si",
+            "ramon", "pou", "delyhinit", "cocacola", "sergiovil", "andres",
+        "piel", "josemaria","bertinosb", "compu", "no", "garcias", "nate",
+        "cetys", "fraxito", "fierp"};
+        Random aleatorio = new Random(); //variable aleatoria para elegir una palabra
+        int posicion = aleatorio.nextInt(listaPalabras.length);
+        return listaPalabras[posicion];
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
