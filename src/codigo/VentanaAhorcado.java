@@ -18,17 +18,18 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 
     //esta variable guarda cuántos fallos llevo en el juego
     int numeroFallos = 0;
-            
+    boolean partidaTerminada = false; //indica si la partida ha terminado
     String palabraOculta = eligePalabra();
     
     
     //este método recibe el botón que ha sido pulsado 
     //y procesa la letra que tiene en su etiqueta
     private void chequeaBoton(JButton boton){
+        if(!partidaTerminada){
         boton.setEnabled(false);
         chequeaLetra(boton.getText());
     }
-    
+}    
     private void chequeaLetra(String letra){
         
         String palabraConGuiones = jLabel1.getText();
@@ -50,11 +51,15 @@ public class VentanaAhorcado extends javax.swing.JFrame {
            if(!palabraConGuiones.contains("_")){
                numeroFallos = -1;
                dibujaImagen();
+               partidaTerminada = true;
            }
            
         }
         else{
             numeroFallos++;
+            if(numeroFallos == 6){
+                partidaTerminada = true;
+            }
             dibujaImagen();
         }
         
@@ -107,9 +112,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     //eligePalabra va a seleccionar una palabra al azar de un array de palabras
     private String eligePalabra(){
         String[]listaPalabras = {"hamud", "foreskin", "aveces", "si",
-            "ramon", "pou", "delyhinit", "cocacola", "sergiovil", "andres",
-        "piel", "josemaria","bertinosb", "compu", "no", "garcias", "nate",
-        "cetys", "fraxito", "fierp"};
+            "ramon", "pou", "delyhinit", "cocacola", "sergiovilches", "andres",
+        "piel", "josemaria","bertinosborne", "compu", "no", "garcias", "nate",
+        "cetys", "fraxito", "fierp", "china", "dou", "retribucion", "cibeles",
+        "porro", "pepsi", "guarana", "borbon", "andere", "habibi","pectoral",
+        "gluteo", "jakads", "jeva", "burgerking", "stalin", "sentidocomun"};
         Random aleatorio = new Random(); //variable aleatoria para elegir una palabra
         int posicion = aleatorio.nextInt(listaPalabras.length);
         return listaPalabras[posicion];
