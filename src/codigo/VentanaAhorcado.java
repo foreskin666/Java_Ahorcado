@@ -118,7 +118,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         "porro", "pepsi", "guarana", "borbon", "andere", "habibi","pectoral",
         "gluteo", "jakads", "jeva", "burgerking", "stalin", "sentidocomun",
         "alfaro", "nig", "maxi", "comomatar", "tencologia", "xddd", "whenitsthe",
-        "papopepo", "zalex", "crosbi", "juanma"};
+        "papopepo", "zalex", "crosbi", "juanma", "jesucristian", "xgen", "elprimolucas",
+        "pija", "noman", "buenardo", "buenardium", "limopena", "handstreamroñoso",
+        "cogida", "toreto", "cardio", "cejota", "socialdemocracia", 
+        "atresmedia", "pokesonic", "esege", "sg", "hamuuuuuuuuuuud",
+        "homohabilis"};
         Random aleatorio = new Random(); //variable aleatoria para elegir una palabra
         int posicion = aleatorio.nextInt(listaPalabras.length);
         return listaPalabras[posicion];
